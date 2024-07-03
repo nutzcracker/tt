@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Urls-Info</title>
+    <link href="https://cdn.datatables.net/2.0.6/css/dataTables.dataTables.css">
+    <link href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css">
+</head>
+<body>
+<style>
+    /* CSS стили для DataTables */
+    table.dataTable {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table.dataTable thead th {
+        border: 1px solid #ddd;
+        /*padding: 8px;*/
+        text-align: left;
+    }
+
+    table.dataTable tfoot th {
+        border: 1px solid #ddd;
+        /*padding: 8px;*/
+        text-align: left;
+    }
+
+    table.dataTable tbody td {
+        border: 1px solid #ddd;
+        /*padding: 8px;*/
+    }
+
+    table.dataTable tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>
+
+<a href="/admin/info-queries"><h3 style="text-align: left">Таблица запросов</h3></a>
+<input type="date" id="start_date">
+<input type="date" id="end_date">
+<input type="text" id="search_field" style="width: 250px">
+<label for="input_sort">Отсортировать?</label>
+<input type="checkbox" id="input_sort">
+<label for="input_desc">По убыванию?</label>
+<input type="checkbox" id="input_desc">
+<input type="button" value="Отфильтровать" onclick="UpdateTable();">
+<input type="button" value="Excel" onclick="generateExcel();">
+<input type="button" value="Csv" onclick="generateCsv();">
+<table id="example" class="display nowrap" style="width:100%;">
+
+    <thead>
+    <tr id="head_t">
+
+    </tr>
+    </thead>
+    <tbody id="body_t">
+
+    </tbody>
+
+</table>
+<div class="pagination">
+    <button id="prev" onclick="PrevPage()"></button>
+    <button id="cur" disabled></button>
+    <button id="next" onclick="NextPage()"></button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://cdn.datatables.net/2.0.6/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+
+<!--<script src="/static/assets/vendor/jquery/jquery-3.3.1.min.js"></script>-->
+
+<script>
+    function getDate(minus_day) {
+        var today = new Date();
+        var twoWeeksAgo = new Date(today.getTime() - (minus_day * 24 * 60 * 60 * 1000));
+        var ddTwoWeeksAgo = String(twoWeeksAgo.getDate()).padStart(2, '0');
+        var mmTwoWeeksAgo = String(twoWeeksAgo.getMonth() + 1).padStart(2, '0');
+        var yyyyTwoWeeksAgo = twoWeeksAgo.getFullYear();
+
+        var twoWeeksAgoDate = yyyyTwoWeeksAgo + '-' + mmTwoWeeksAgo + '-' + ddTwoWeeksAgo;
+        return twoWeeksAgoDate
+    }
+
+    function IncrementDate(date, minus_day) {
+        var today = new Date(date);
+        var twoWeeksAgo = new Date(today.getTime() + (minus_day * 24 * 60 * 60 * 1000));
+        var ddTwoWeeksAgo = String(twoWeeksAgo.getDate()).padStart(2, '0');
+        var mmTwoWeeksAgo = String(twoWeeksAgo.getMonth() + 1).padStart(2, '0');
+        var yyyyTwoWeeksAgo = twoWeeksAgo.getFullYear();
+
+        var twoWeeksAgoDate = yyyyTwoWeeksAgo + '-' + mmTwoWeeksAgo + '-' + ddTwoWeeksAgo;
+        return twoWeeksAgoDate
+    }
+
+
+    function calculateDays() {
+        var start_date = new Date(document.getElementById('start_date').value);
+        var end_date = new Date(document.getElementById('end_date').value);
+
+        var diffTime = Math.abs(end_date - start_date);
+        var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        return diffDays;
+    }
+
+    function SetDatePage() {
+        // Set today date in the input for start date
+        document.getElementById('end_date').value = getDate(0);
+
+        // Set the default value of the second input to two weeks ago
+        document.getElementById('start_date').value = getDate(14);
+    }
+
+
+    function SetDataTable() {
+
+        let row = document.getElementById("head_t");
+
+        var nameCell = document.createElement('td');
+        nameCell.textContent = "url";
+        row.appendChild(nameCell);
+
+        columns = [
+            {"title": "url"},
+        ]
+
+        document.getElementById("prev").innerHTML = 0;
+        document.getElementById("prev").disabled = true;
+        document.getElementById("cur").innerHTML = 1;
+        document.getElementById("next").innerHTML = 2;
+
+        amount = calculateDays();
+
+        for (i = amount - 1; i >= 0; i--) {
+            columns.push({"title": IncrementDate(document.getElementById('start_date').value, i)})
+            var nameCell = document.createElement('td');
+            nameCell.textContent = IncrementDate(document.getElementById('start_date').value, i);
+            row.appendChild(nameCell);
+        }
+
+        var url = "/admin/get-urls";
+        var params = {
+            length: 50, // количество отображаемых элементов
+            start: 0, // номер страницы
+            start_date: document.getElementById('start_date').value, // Дата начала поиска
+            end_date: document.getElementById('end_date').value, // Дата окончания поиска
+            amount: calculateDays(),
+            search_text: document.getElementById("search_field").value,
+            sort_result: document.getElementById("input_sort").checked,
+            sort_desc: document.getElementById("input_desc").checked,
+        };
+        console.log(params);
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(params)
+            // body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Обработка ответа
+                data = data.data;
+                var table = $('#body_t');
+                empty = `<div style='height: 55px; width: 100px; margin: 0px; padding: 0px; background-color: #B9BDBC'>
+            <span style='font-size: 18px'><span style='color:red'>NAN</span></span><br>
+            <span style='font-size: 10px'>Клики</span><span style='font-size: 10px; margin-left: 20px'>CTR <span style='color:red'>NAN%</span></span><br>
+            <span style='font-size: 10px'><span style='color:red'>NAN</span></span> <span style='font-size: 10px; margin-left: 30px'>R <span style='color:red'>NAN%</span></span>
+            </div>`
+                for (i = 0; i < 50; i++) {
+                    var newRow = '<tr>';
+                    $.each(columns, function (index_c, cell) {
+                        if (data[i][columns[index_c]["title"]]) {
+                            newRow += '<td>' + data[i][columns[index_c]["title"]] + '</td>';
+                        } else {
+                            newRow += '<td>' + empty + '</td>';
+                        }
+                    });
+                    newRow += '</tr>';
+                    table.append(newRow);
+                }
+
+            })
+            .catch(error => {
+                // Обработка ошибки
+                console.error("Error:", error);
+            });
+
+    }
+
+    function UpdateTable() {
+
+        let row = document.getElementById("head_t");
+        row.innerHTML = "";
+        var nameCell = document.createElement('td');
+        nameCell.textContent = "url";
+        row.appendChild(nameCell);
+
+        columns = [
+            {"title": "url"},
+        ]
+
+        document.getElementById("prev").innerHTML = 0;
+        document.getElementById("prev").disabled = true;
+        document.getElementById("cur").innerHTML = 1;
+        document.getElementById("next").innerHTML = 2;
+
+
+        amount = calculateDays();
+
+        for (i = amount - 1; i >= 0; i--) {
+            columns.push({"title": IncrementDate(document.getElementById('start_date').value, i)})
+            var nameCell = document.createElement('td');
+            nameCell.textContent = IncrementDate(document.getElementById('start_date').value, i);
+            row.appendChild(nameCell);
+        }
+
+        var url = "/admin/get-urls";
+        var params = {
+            length: 50, // количество отображаемых элементов
+            start: 0, // номер страницы
+            start_date: document.getElementById('start_date').value, // Дата начала поиска
+            end_date: document.getElementById('end_date').value, // Дата окончания поиска
+            amount: calculateDays(),
+            search_text: document.getElementById("search_field").value,
+            sort_result: document.getElementById("input_sort").checked,
+            sort_desc: document.getElementById("input_desc").checked,
+        };
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(params)
+            // body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                data = data.data;
+                var table = $('#body_t');
+
+                var elmtTable = document.getElementById('body_t');
+                var tableRows = elmtTable.getElementsByTagName('tr');
+                var rowCount = tableRows.length;
+
+                for (var x = rowCount - 1; x >= 0; x--) {
+                    elmtTable.removeChild(tableRows[x]);
+                }
+                if (data.length == 0) {
+                    return;
+                }
+                empty = `<div style='height: 55px; width: 100px; margin: 0px; padding: 0px; background-color: #B9BDBC'>
+            <span style='font-size: 18px'><span style='color:red'>NAN</span></span><br>
+            <span style='font-size: 10px'>Клики</span><span style='font-size: 10px; margin-left: 20px'>CTR <span style='color:red'>NAN%</span></span><br>
+            <span style='font-size: 10px'><span style='color:red'>NAN</span></span> <span style='font-size: 10px; margin-left: 30px'>R <span style='color:red'>NAN%</span></span>
+            </div>`
+                for (i = 0; i < 50; i++) {
+                    var newRow = '<tr>';
+                    $.each(columns, function (index_c, cell) {
+                        if (data[i][columns[index_c]["title"]]) {
+                            newRow += '<td>' + data[i][columns[index_c]["title"]] + '</td>';
+                        } else {
+                            newRow += '<td>' + empty + '</td>';
+                        }
+                    });
+                    newRow += '</tr>';
+                    table.append(newRow);
+                }
+
+            })
+            .catch(error => {
+                // Обработка ошибки
+                console.error("Error:", error);
+            });
+
+    }
+
+
+    function PrevPage() {
+
+        let row = document.getElementById("head_t");
+        row.innerHTML = "";
+        var nameCell = document.createElement('td');
+        nameCell.textContent = "url";
+        row.appendChild(nameCell);
+
+        columns = [
+            {"title": "url"},
+        ]
+
+        amount = calculateDays();
+
+        for (i = amount - 1; i >= 0; i--) {
+            columns.push({"title": IncrementDate(document.getElementById('start_date').value, i)})
+            var nameCell = document.createElement('td');
+            nameCell.textContent = IncrementDate(document.getElementById('start_date').value, i);
+            row.appendChild(nameCell);
+        }
+        var CurPage = document.getElementById("cur").innerHTML;
+        CurPage = Number.parseInt(CurPage, 10)
+
+        document.getElementById("prev").innerHTML = CurPage - 2;
+        if (CurPage <= 2) {
+            document.getElementById("prev").disabled = true;
+        } else {
+            document.getElementById("prev").disabled = false;
+        }
+        document.getElementById("cur").innerHTML = CurPage - 1;
+        document.getElementById("next").innerHTML = CurPage;
+
+
+        var url = "/admin/get-urls";
+        var params = {
+            length: 50, // количество отображаемых элементов
+            start: ((CurPage - 2) * 50) + 1, // номер страницы
+            start_date: document.getElementById('start_date').value, // Дата начала поиска
+            end_date: document.getElementById('end_date').value, // Дата окончания поиска
+            amount: calculateDays(),
+            search_text: document.getElementById("search_field").value,
+            sort_result: document.getElementById("input_sort").checked,
+            sort_desc: document.getElementById("input_desc").checked,
+        };
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(params)
+            // body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                data = data.data;
+                var table = $('#body_t');
+
+                var elmtTable = document.getElementById('body_t');
+                var tableRows = elmtTable.getElementsByTagName('tr');
+                var rowCount = tableRows.length;
+
+                for (var x = rowCount - 1; x >= 0; x--) {
+                    elmtTable.removeChild(tableRows[x]);
+                }
+                if (data.length == 0) {
+                    return;
+                }
+                empty = `<div style='height: 55px; width: 100px; margin: 0px; padding: 0px; background-color: #B9BDBC'>
+            <span style='font-size: 18px'><span style='color:red'>NAN</span></span><br>
+            <span style='font-size: 10px'>Клики</span><span style='font-size: 10px; margin-left: 20px'>CTR <span style='color:red'>NAN%</span></span><br>
+            <span style='font-size: 10px'><span style='color:red'>NAN</span></span> <span style='font-size: 10px; margin-left: 30px'>R <span style='color:red'>NAN%</span></span>
+            </div>`
+                for (i = 0; i < 50; i++) {
+                    var newRow = '<tr>';
+                    $.each(columns, function (index_c, cell) {
+                        if (data[i][columns[index_c]["title"]]) {
+                            newRow += '<td>' + data[i][columns[index_c]["title"]] + '</td>';
+                        } else {
+                            newRow += '<td>' + empty + '</td>';
+                        }
+                    });
+                    newRow += '</tr>';
+                    table.append(newRow);
+                }
+
+            })
+            .catch(error => {
+                // Обработка ошибки
+                console.error("Error:", error);
+            });
+
+    }
+
+
+    function NextPage() {
+
+        let row = document.getElementById("head_t");
+        row.innerHTML = "";
+        var nameCell = document.createElement('td');
+        nameCell.textContent = "url";
+        row.appendChild(nameCell);
+
+        columns = [
+            {"title": "url"},
+        ]
+
+        amount = calculateDays();
+
+        for (i = amount - 1; i >= 0; i--) {
+            columns.push({"title": IncrementDate(document.getElementById('start_date').value, i)})
+            var nameCell = document.createElement('td');
+            nameCell.textContent = IncrementDate(document.getElementById('start_date').value, i);
+            row.appendChild(nameCell);
+        }
+        var CurPage = document.getElementById("cur").innerHTML;
+        CurPage = Number.parseInt(CurPage, 10)
+        var url = "/admin/get-urls";
+
+        document.getElementById("prev").innerHTML = CurPage;
+        document.getElementById("prev").disabled = false;
+        document.getElementById("cur").innerHTML = CurPage + 1;
+        document.getElementById("next").innerHTML = CurPage + 2;
+
+
+        var params = {
+            length: 50, // количество отображаемых элементов
+            start: (CurPage * 50) + 1, // номер страницы
+            start_date: document.getElementById('start_date').value, // Дата начала поиска
+            end_date: document.getElementById('end_date').value, // Дата окончания поиска
+            amount: calculateDays(),
+            search_text: document.getElementById("search_field").value,
+            sort_result: document.getElementById("input_sort").checked,
+            sort_desc: document.getElementById("input_desc").checked,
+        };
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(params)
+            // body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                data = data.data;
+                var table = $('#body_t');
+
+                var elmtTable = document.getElementById('body_t');
+                var tableRows = elmtTable.getElementsByTagName('tr');
+                var rowCount = tableRows.length;
+
+                for (var x = rowCount - 1; x >= 0; x--) {
+                    elmtTable.removeChild(tableRows[x]);
+                }
+                if (data.length == 0) {
+                    return;
+                }
+                empty = `<div style='height: 55px; width: 100px; margin: 0px; padding: 0px; background-color: #B9BDBC'>
+            <span style='font-size: 18px'><span style='color:red'>NAN</span></span><br>
+            <span style='font-size: 10px'>Клики</span><span style='font-size: 10px; margin-left: 20px'>CTR <span style='color:red'>NAN%</span></span><br>
+            <span style='font-size: 10px'><span style='color:red'>NAN</span></span> <span style='font-size: 10px; margin-left: 30px'>R <span style='color:red'>NAN%</span></span>
+            </div>`
+                for (i = 0; i < 50; i++) {
+                    var newRow = '<tr>';
+                    $.each(columns, function (index_c, cell) {
+                        if (data[i][columns[index_c]["title"]]) {
+                            newRow += '<td>' + data[i][columns[index_c]["title"]] + '</td>';
+                        } else {
+                            newRow += '<td>' + empty + '</td>';
+                        }
+                    });
+                    newRow += '</tr>';
+                    table.append(newRow);
+                }
+
+            })
+            .catch(error => {
+                // Обработка ошибки
+                console.error("Error:", error);
+            });
+
+    }
+
+    $(document).ready(SetDatePage())
+    $(document).ready(SetDataTable())
+</script>
+<script>
+    function generateExcel() {
+        const data = {
+            "start": 0,
+            "length": 50,
+            "start_date": document.getElementById('start_date').value, // Дата начала поиска
+            "end_date": document.getElementById('end_date').value, // Дата окончания поиска
+            "amount": calculateDays(),
+            "search_text": document.getElementById("search_field").value,
+            "sort_result": document.getElementById("input_sort").checked,
+            "sort_desc": document.getElementById("input_desc").checked,
+        };
+        fetch('/admin/generate_excel_url/', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                return response.blob();
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'data.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            });
+    }
+
+    function generateCsv() {
+        const data = {
+            "start": 0,
+            "length": 50,
+            "start_date": document.getElementById('start_date').value, // Дата начала поиска
+            "end_date": document.getElementById('end_date').value, // Дата окончания поиска
+            "amount": calculateDays(),
+            "search_text": document.getElementById("search_field").value,
+            "sort_result": document.getElementById("input_sort").checked,
+            "sort_desc": document.getElementById("input_desc").checked,
+        };
+        fetch('/admin/generate_csv_urls/', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                return response.blob();
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'data.csv';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,1182 @@
+{
+  "count": 150000,
+  "text_indicator_to_statistics": [
+    {
+      "text_indicator": {
+        "type": "QUERY",
+        "value": "ремонтные муфты для канализационных труб 150мм"
+      },
+      "statistics": [
+        {
+          "date": "2024-04-27",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "DEMAND",
+          "value": 3.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "POSITION",
+          "value": 2.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "IMPRESSIONS",
+          "value": 3.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CLICKS",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "text_indicator": {
+        "type": "QUERY",
+        "value": "ремонтные хомуты для труб ду100"
+      },
+      "statistics": [
+        {
+          "date": "2024-04-27",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "DEMAND",
+          "value": 2.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "POSITION",
+          "value": 10.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CTR",
+          "value": 33.3
+        },
+        {
+          "date": "2024-05-08",
+          "field": "IMPRESSIONS",
+          "value": 3.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CLICKS",
+          "value": 1.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CLICKS",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "text_indicator": {
+        "type": "QUERY",
+        "value": "ремонтный хомут 32"
+      },
+      "statistics": [
+        {
+          "date": "2024-04-27",
+          "field": "DEMAND",
+          "value": 2.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "POSITION",
+          "value": 10.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "IMPRESSIONS",
+          "value": 2.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "DEMAND",
+          "value": 1.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "POSITION",
+          "value": 9.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "IMPRESSIONS",
+          "value": 1.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CLICKS",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "text_indicator": {
+        "type": "QUERY",
+        "value": "ремонтный хомут двухзамковый од=107-111 ду=100"
+      },
+      "statistics": [
+        {
+          "date": "2024-04-27",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-27",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-28",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-29",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-04-30",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-01",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "DEMAND",
+          "value": 3.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "POSITION",
+          "value": 10.6
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "IMPRESSIONS",
+          "value": 3.0
+        },
+        {
+          "date": "2024-05-02",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-03",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-04",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-05",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-06",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-07",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-08",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-09",
+          "field": "CLICKS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "DEMAND",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CTR",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "IMPRESSIONS",
+          "value": 0.0
+        },
+        {
+          "date": "2024-05-10",
+          "field": "CLICKS",
+          "value": 0.0
+        }
+      ]
+    }
+  ]
+}
