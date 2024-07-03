@@ -86,12 +86,12 @@
         var today = getDate(0);
         var start_date = document.getElementById('start_date');
         if (today < start_date.value) {
-            document.getElementById('start_date').value = today ;
-            console.error('Не корректная дата');
+            document.getElementById('start_date').value = getDate(14) ;
+            console.log('Не корректная дата');
         }
         if (today < end_date.value) {
             document.getElementById('end_date').value = today ;
-            console.error('Не корректная дата');
+            console.log('Не корректная дата');
         }
     }
 
