@@ -130,8 +130,11 @@ class QueryDAL:
             self,
             add_values
     ):
-        self.db_session.add_all(add_values)
-        await self.db_session.flush()
+        async with self.db_session.begin():
+            for value in add_values:
+                # Используем метод merge для вставки или обновления объекта
+                self.db_session.merge(value)
+            await self.db_session.flush()
         return
 
     async def get_urls_with_pagination(self, page, per_page, date_start, date_end):

@@ -6,6 +6,7 @@ import config
 from db.models import Query
 from db.models import MetricsQuery
 from db.session import async_session
+from sqlalchemy import select
 from api.actions.queries import _add_new_urls
 from api.actions.metrics_queries import _add_new_metrics
 
@@ -20,10 +21,11 @@ URL = f"https://api.webmaster.yandex.net/v4/user/{USER_ID}/hosts/{HOST_ID}/query
 
 
 async def add_data(data):
+    new_urls = []
+    metrics = []
     for query in data['text_indicator_to_statistics']:
         query_name = query['text_indicator']['value']
-        new_url = [Query(query=query_name)]
-        metrics = []
+        new_urls.append(Query(query=query_name))
         date = query['statistics'][0]["date"]
         data_add = {
             "date": date,
@@ -65,8 +67,8 @@ async def add_data(data):
                 data_add["ctr"] = el["value"]
             elif field == "POSITION":
                 data_add["position"] = el["value"]
-        await _add_new_urls(new_url, async_session)
-        await _add_new_metrics(metrics, async_session)
+    await _add_new_metrics(metrics, async_session)
+    await _add_new_urls(new_urls, async_session)
 
 
 async def get_data_by_page(page):
